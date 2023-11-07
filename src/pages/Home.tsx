@@ -15,6 +15,7 @@ import {
 import { saveAs } from 'file-saver'
 import './Home.scss'
 import { useRef } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 interface Todo {
     id: string
@@ -83,11 +84,10 @@ export const TodoList = () => {
         reader.onload = (e) => {
             const lines = e.target.result.split('\n')
             console.log(lines)
-            const todos = []
-            for (let line of lines) {
+            const todos = lines.map((line) => {
                 const [id, text] = line.split(': ')
-                todos.push({ id, text })
-            }
+                return { id, text }
+            })
             setTodos(todos)
             localStorage.setItem('todos', JSON.stringify(todos))
         }
@@ -142,7 +142,7 @@ export const TodoList = () => {
 
                     if (text.length <= 40) {
                         handleAddTodo({
-                            id: Date.now().toString(),
+                            id: uuidv4(),
                             text: text,
                         })
                     }
