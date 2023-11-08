@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Home } from './Home2.tsx'
+import { Home } from './Home.tsx'
 import { Page404 } from './Page404'
 
 export const Pages = () => {
