@@ -13,7 +13,6 @@ import {
     HStack,
 } from '@chakra-ui/react'
 import { saveAs } from 'file-saver'
-import './Home.scss'
 import { useRef } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -22,7 +21,7 @@ interface Todo {
     text: string
 }
 
-export const TodoList = () => {
+export const Home = () => {
     const [text, setText] = useState('')
     const [sortType, setSortType] = useState('asc')
     const [todos, setTodos] = useState<Todo[]>([])
